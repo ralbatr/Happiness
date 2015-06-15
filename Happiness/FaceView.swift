@@ -26,7 +26,11 @@ class FaceView: UIView {
     }
 
     var faceCenter:CGPoint {
-        return convertPoint(center, fromCoordinateSpace: superview!)
+        if #available(iOS 8.0, *) {
+            return convertPoint(center, fromCoordinateSpace: superview!)
+        } else {
+            return CGPoint(x: self.bounds.size.width/2, y: self.bounds.size.height/2)
+        }
     }
     var faceRadius:CGFloat {
         return min(bounds.size.width, bounds.size.height)/2*scale
