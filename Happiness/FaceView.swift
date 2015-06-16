@@ -8,17 +8,19 @@
 
 import UIKit
 
+// 可使sb显示代码效果
+@IBDesignable
 class FaceView: UIView {
-    
+    @IBInspectable
     var lineWidth:CGFloat = 3 {
         didSet {
             // 这样每次改变线的宽度，系统都会重绘视图
             setNeedsDisplay()
         }
     }
-    
+    @IBInspectable
     var scale: CGFloat = 0.90
-    
+    @IBInspectable
     var color:UIColor = UIColor.blueColor() {
         didSet {
             setNeedsDisplay()
