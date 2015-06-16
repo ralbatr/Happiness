@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol FaceViewDataSource:class {
+    func smilinessForFaceView(sender:FaceView) -> Double?
+}
+
 // 可使sb显示代码效果
 @IBDesignable
 class FaceView: UIView {
@@ -37,6 +41,8 @@ class FaceView: UIView {
     var faceRadius:CGFloat {
         return min(bounds.size.width, bounds.size.height)/2*scale
     }
+    
+    weak var dataSourece:FaceViewDataSource?
     
     private struct Scaling {
         static let FaceRadiusToEyeRadiusRadio: CGFloat = 10
@@ -100,7 +106,8 @@ class FaceView: UIView {
         bezierPathForEye(.Left).stroke()
         bezierPathForEye(.Right).stroke()
         
-        bezierPathForSmile(-1).stroke()
+        let smilness = dataSourece?.smilinessForFaceView(self) ?? 0.0
+        bezierPathForSmile(smilness).stroke()
         
     }
 

@@ -57,6 +57,9 @@
                             <constraint firstItem="ur0-yj-DqT" firstAttribute="top" secondItem="74B-5e-wMw" secondAttribute="bottom" id="y8w-WO-AvN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="faceView" destination="74B-5e-wMw" id="Xy1-RB-yFS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABw-KP-Pkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
