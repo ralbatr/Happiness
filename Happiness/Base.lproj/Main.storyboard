@@ -39,6 +39,7 @@
                             <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="74B-5e-wMw" customClass="FaceView" customModule="Happiness" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" red="0.54568787212540881" green="1" blue="0.29738862443746128" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,6 +48,9 @@
                                         <real key="value" value="0.80000000000000004"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="CiE-f4-IT6" appends="YES" id="s09-CU-UhN"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -62,6 +66,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ABw-KP-Pkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="CiE-f4-IT6">
+                    <connections>
+                        <action selector="changeHappiness:" destination="mQL-Hx-hHN" id="ufL-0h-CWF"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="423" y="379"/>
         </scene>
