@@ -23,7 +23,11 @@ class FaceView: UIView {
         }
     }
     @IBInspectable
-    var scale: CGFloat = 0.90
+    var scale: CGFloat = 0.90 {
+        didSet {
+            self.setNeedsDisplay()
+        }
+    }
     @IBInspectable
     var color:UIColor = UIColor.blueColor() {
         didSet {
@@ -94,6 +98,13 @@ class FaceView: UIView {
         path.addCurveToPoint(end, controlPoint1: cp1, controlPoint2: cp2)
         path.lineWidth = lineWidth
         return path
+    }
+    
+    func scale(gesture:UIPinchGestureRecognizer) {
+        if gesture.state == .Changed {
+            scale *= gesture.scale
+            gesture.scale = 1
+        }
     }
     
     override func drawRect(rect: CGRect) {

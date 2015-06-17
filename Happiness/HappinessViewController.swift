@@ -13,9 +13,10 @@ class HappinessViewController: UIViewController ,FaceViewDataSource {
     @IBOutlet weak var faceView: FaceView! {
         didSet {
             faceView.dataSourece = self
+            faceView.addGestureRecognizer(UIPinchGestureRecognizer(target: faceView, action: "scale:"))
         }
     }
-    var happiness: Int = 50 { // 0 = very sad 非常悲伤,100 = ecstatic 非常高兴
+    var happiness: Int = 100 { // 0 = very sad 非常悲伤,100 = ecstatic 非常高兴
         didSet {
             happiness = min(max(happiness, 0) ,100)
             print("happiness = \(happiness)")
